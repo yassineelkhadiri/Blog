@@ -1,0 +1,49 @@
+ <!-- Blog Listing Section -->
+
+      <article class="card mb-3 mb-sm-5" *ngFor = "let article of articles">
+        <img
+          class="card-img-top"
+          [src]="article.img"
+          alt="Image Description"
+        />
+
+        <div class="card-body">
+          <a class="d-block small font-weight-bold text-cap mb-2" href="#"
+            >{{ article.categorie }}</a
+          >
+
+          <h3>
+            <a class="text-inherit" href="blog-single-article.html"
+              > {{ article.title }}</a
+            >
+          </h3>
+
+          <p>
+           {{ article.description }}
+          </p>
+
+          <div class="media align-items-center pt-5">
+            <div class="avatar-group">
+              <div
+                class="avatar avatar-xs avatar-circle"
+                data-toggle="tooltip"
+                data-placement="top"
+                [title] = "article.author"
+              >
+                <img
+                  class="avatar-img"
+                  [src}="article.authorImg"
+                  alt="Image Description"
+                />
+              </div>
+            </div>
+            <div
+              class="media-body d-flex justify-content-end text-muted font-size-1 ml-2"
+            >
+              {{ article.date }}
+            </div>
+          </div>
+        </div>
+      </article>
+
+      
