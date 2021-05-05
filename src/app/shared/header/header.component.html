@@ -9,7 +9,7 @@
         class="js-mega-menu navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal"
       >
         <!-- Logo -->
-        <a class="navbar-brand" aria-label="Front" [routerLink]="['/']">
+        <a class="navbar-brand" aria-label="Front" [routerLink]="['/feed']">
           <img src="./assets/svg/logos/darkLogo.svg" alt="Logo" />
         </a>
         <!-- End Logo -->
@@ -17,10 +17,10 @@
         <!-- Navigation -->
         <div id="navBar" class="collapse navbar-collapse">
           <div class="navbar-body header-abs-top-inner">
-            <ul class="js-scroll-nav navbar-nav">
+            <ul class="navbar-nav">
               <li>
                 <form
-                  class="form-inline input-group input-group-sm input-group-merge input-group-flush d-none d-lg-flex ml-auto"
+                  class="form-inline input-group input-group-sm input-group-merge input-group-flush d-lg-flex"
                   style="max-width: 300px"
                 >
                   <input
@@ -50,34 +50,23 @@
               <li class="navbar-nav-item">
                 <a
                   class="nav-link"
-                  [routerLink]="['my-article']"
-                  routerLinkActive="active"
-                  >My Artical</a
-                >
-              </li>
-              <li class="navbar-nav-item">
-                <a
-                  class="nav-link"
-                  [routerLink]="['account/personalinfo']"
+                  [routerLink]="['profile']"
                   routerLinkActive="active"
                   >Profile</a
                 >
               </li>
               <li class="navbar-nav-item">
-                <!-- Blog -->
+                <a
+                  class="nav-link"
+                  [routerLink]="['settings/personalinfo']"
+                  routerLinkActive="active"
+                  >Settings</a
+                >
               </li>
-              <li class="hs-has-sub-menu navbar-nav-item ml-4">
-                <a>
-                  <div class="avatar avatar-circle mr-3">
-                    <img
-                      class="avatar-img"
-                      src="./assets/img/avatar-2.jpg"
-                      alt="Image Description"
-                    />
-                  </div>
-                </a>
+
+              <li class="navbar-nav-item">
+                <button type="button" class="btn btn-secondary">Log Out</button>
               </li>
-              <!-- End Blog -->
             </ul>
           </div>
         </div>

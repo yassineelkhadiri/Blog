@@ -34,6 +34,7 @@ import { AddressComponent } from './components/account/personainfo/address/addre
 import { PasswordComponent } from './components/account/login-security/password/password.component';
 import { ConnectedAccountsComponent } from './components/account/login-security/connected-accounts/connected-accounts.component';
 import { SocialAccountsComponent } from './components/account/login-security/social-accounts/social-accounts.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { SocialAccountsComponent } from './components/account/login-security/soc
     BadgeComponent,
     ShareComponent,
     WriterComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
