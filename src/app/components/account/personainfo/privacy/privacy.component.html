@@ -1,0 +1,54 @@
+<div class="card mb-3 mb-lg-5">
+  <div class="card-header">
+    <h5 class="card-title">Privacy</h5>
+  </div>
+
+  <!-- Body -->
+  <div class="card-body">
+    <form>
+      <!-- Form Group -->
+      <div class="row form-group">
+        <div class="col-sm-3">
+          <span class="d-block font-size-1 mb-2"
+            >Who can see your profile photo?
+            <i
+              class="far fa-question-circle"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Your visibility setting only applies to your profile photo. Your header image is always visible to anyone."
+            ></i
+          ></span>
+        </div>
+
+        <div class="col-sm-9">
+          <!-- Select -->
+          <div class="select2-custom">
+            <select
+              class="js-custom-select"
+              data-hs-select2-options='{
+                      "minimumResultsForSearch": "Infinity",
+                      "customClass": "custom-select"
+                    }'
+            >
+              <option
+                value="privacy1"
+                data-option-template='<span class="media"><i class="fas fa-globe-americas text-body mt-1 mr-2"></i><span class="media-body"><span class="d-block">Anyone</span><small class="select2-custom-hide">Visible to anyone who can view your content. Accessible by installed apps.</small></span></span>'
+              >
+                Anyone
+              </option>
+              <option
+                value="privacy2"
+                data-option-template='<span class="media"><i class="fas fa-user-lock text-body mt-1 mr-2"></i><span class="media-body"><span class="d-block">Only you</span><small class="select2-custom-hide">Only visible to you.</small></span></span>'
+              >
+                Only you
+              </option>
+            </select>
+          </div>
+          <!-- End Select -->
+        </div>
+      </div>
+      <!-- End Form Group -->
+    </form>
+  </div>
+  <!-- End Body -->
+</div>

@@ -1,0 +1,22 @@
+<main id="content" role="main" class="bg-light">
+  <!-- Breadcrumb Section -->
+  <app-breadcrumb [section]="'Personal info'"></app-breadcrumb>
+  <!-- End Breadcrumb Section -->
+
+  <!-- Content Section -->
+  <div class="container space-1 space-top-lg-0 space-bottom-lg-2 mt-lg-n10">
+    <div class="row">
+      <div class="col-lg-3">
+        <!-- Seletct View -->
+        <app-card></app-card>
+        <!-- End Seletct View -->
+      </div>
+
+      <div class="col-lg-9">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Content Section -->
+</main>
