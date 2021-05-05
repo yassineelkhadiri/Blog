@@ -1,23 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
 import { AccountComponent } from './components/account/account.component';
 import { LoginSecurityComponent } from './components/account/login-security/login-security.component';
 import { NotificationsComponent } from './components/account/notifications/notifications.component';
 import { PersonainfoComponent } from './components/account/personainfo/personainfo.component';
 import { ArticleComponent } from './components/article/article.component';
+import { FeedComponent } from './components/feed/feed.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'article', component: ArticleComponent },
+  { path: 'auth', component: AuthComponent },
+  { path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'settings',
     component: AccountComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'personalinfo', component: PersonainfoComponent },
       { path: 'notifications', component: NotificationsComponent },

@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { ProfileOverviewComponent } from './components/profile-overview/profile-overview.component';
 import { ArticleOverviewComponent } from './components/article-overview/article-overview.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ArticleComponent } from './components/article/article.component';
 import { AuthorOverviewComponent } from './components/author-overview/author-overview.component';
@@ -35,9 +37,12 @@ import { PasswordComponent } from './components/account/login-security/password/
 import { ConnectedAccountsComponent } from './components/account/login-security/connected-accounts/connected-accounts.component';
 import { SocialAccountsComponent } from './components/account/login-security/social-accounts/social-accounts.component';
 import { HomeComponent } from './components/home/home.component';
+import { AuthComponent } from './auth/auth.component';
+import { FeedComponent } from './components/feed/feed.component';
 
 @NgModule({
   declarations: [
+    LoadingSpinnerComponent,
     AccountComponent,
     DeleteComponent,
     PrivacyComponent,
@@ -70,8 +75,10 @@ import { HomeComponent } from './components/home/home.component';
     ShareComponent,
     WriterComponent,
     HomeComponent,
+    AuthComponent,
+    FeedComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

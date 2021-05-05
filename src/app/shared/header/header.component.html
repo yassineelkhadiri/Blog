@@ -1,16 +1,16 @@
 <header
-  id="header"
   class="header header-box-shadow header-box-shadow-on-scroll header-floating-lg js-header-fix-moment"
 >
   <div id="logoAndNav" class="container">
     <div class="header-section header-floating-inner mx-lg-n3">
       <!-- Nav -->
       <nav
-        class="js-mega-menu navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal"
+        class="navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal"
       >
         <!-- Logo -->
-        <a class="navbar-brand" aria-label="Front" [routerLink]="['/feed']">
+        <a class="navbar-brand" aria-label="Front" [routerLink]="['']">
           <img src="./assets/svg/logos/darkLogo.svg" alt="Logo" />
+          BlogAll
         </a>
         <!-- End Logo -->
 
@@ -19,31 +19,20 @@
           <div class="navbar-body header-abs-top-inner">
             <ul class="navbar-nav">
               <li>
-                <form
-                  class="form-inline input-group input-group-sm input-group-merge input-group-flush d-lg-flex"
-                  style="max-width: 300px"
+                <a
+                  class="nav-link"
+                  [routerLink]="['']"
+                  routerLinkActive="active"
+                  *ngIf="!isAuthenticated"
+                  >Home</a
                 >
-                  <input
-                    class="js-hs-docs-search form-control ui-autocomplete-input"
-                    type="text"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                    aria-describedby="docsSearch"
-                    data-url="#"
-                    autocomplete="off"
-                  />
-                  <div class="input-group-append">
-                    <span class="input-group-text" id="docsSearch">
-                      <i class="fa fa-search"></i>
-                    </span>
-                  </div>
-                </form>
               </li>
               <li class="navbar-nav-item">
                 <a
                   class="nav-link"
                   [routerLink]="['feed']"
                   routerLinkActive="active"
+                  *ngIf="isAuthenticated"
                   >Feed</a
                 >
               </li>
@@ -52,6 +41,7 @@
                   class="nav-link"
                   [routerLink]="['profile']"
                   routerLinkActive="active"
+                  *ngIf="isAuthenticated"
                   >Profile</a
                 >
               </li>
@@ -60,12 +50,29 @@
                   class="nav-link"
                   [routerLink]="['settings/personalinfo']"
                   routerLinkActive="active"
+                  *ngIf="isAuthenticated"
                   >Settings</a
                 >
               </li>
 
               <li class="navbar-nav-item">
-                <button type="button" class="btn btn-secondary">Log Out</button>
+                <a
+                  class="nav-link"
+                  [routerLink]="['auth']"
+                  routerLinkActive="active"
+                  *ngIf="!isAuthenticated"
+                  >Authenticate</a
+                >
+              </li>
+
+              <li class="navbar-nav-item">
+                <a
+                  class="nav-link"
+                  routerLinkActive="active"
+                  *ngIf="isAuthenticated"
+                  (click)="onLogout()"
+                  >Logout</a
+                >
               </li>
             </ul>
           </div>
