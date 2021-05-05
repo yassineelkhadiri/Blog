@@ -2,3 +2,63 @@
     <div class="mb-4">
       <h3>{{ comments.length }} Comments</h3>
     </div>
+    <ul class="list-unstyled">
+        <!-- Comment -->
+        <li class="mb-5" *ngFor="let comment of comments">
+          <div class="media align-items-center mb-2">
+            <div class="avatar avatar-circle mr-3">
+              <img
+                class="avatar-img"
+                src="{{ comment.img }}"
+                alt="Image Description"
+              />
+            </div>
+            <div class="media-body">
+              <div
+                class="d-flex justify-content-between align-items-center"
+              >
+                <span class="h5 mb-0"> {{ comments.name }}</span>
+                <small class="text-muted">{{ comment.date }}</small>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            {{ comment.text }}
+          </p>
+
+          <a class="font-weight-bold" href="#" >Reply</a>
+
+          <ul class="list-unstyled mt-5" >
+            <!-- Comment -->
+            <li class="mb-5" *ngIf ="comment.reply  !== null">
+              <div class="border-left border-3 pl-4">
+                <div class="media align-items-center mb-2">
+                  <div class="avatar avatar-circle mr-3">
+                    <img
+                      class="avatar-img"
+                      src="{{ comment.reply.img }}"
+                      alt="Image Description"
+                    />
+                  </div>
+                  <div class="media-body">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <span class="h5 mb-0">{{ comment.reply.name }}</span>
+                      <small class="text-muted">{{ comment.reply.date }}</small>
+                    </div>
+                  </div>
+                </div>
+
+                <p>{{ comment.reply.text }}.</p>
+
+                <a class="font-weight-bold" href="#">Reply</a>
+              </div>
+            </li>
+            <!-- End Comment -->
+          </ul>
+        </li>
+        <!-- End Comment -->
+
+        
