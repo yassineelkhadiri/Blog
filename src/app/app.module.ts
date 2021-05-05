@@ -12,7 +12,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ArticleComponent } from './components/article/article.component';
 import { AuthorOverviewComponent } from './components/author-overview/author-overview.component';
 import { QuoteComponent } from './components/quote/quote.component';
-
 import { CommentComponent } from './components/comment/comment.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { RelatedComponent } from './components/related/related.component';
@@ -21,9 +20,36 @@ import { ContentComponent } from './components/content/content.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { ShareComponent } from './components/share/share.component';
 import { WriterComponent } from './components/writer/writer.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AccountComponent } from './components/account/account.component';
+import { BreadcrumbComponent } from './components/account/breadcrumb/breadcrumb.component';
+import { CardComponent } from './components/account/card/card.component';
+import { PersonainfoComponent } from './components/account/personainfo/personainfo.component';
+import { LoginSecurityComponent } from './components/account/login-security/login-security.component';
+import { NotificationsComponent } from './components/account/notifications/notifications.component';
+import { BasicinfoComponent } from './components/account/personainfo/basicinfo/basicinfo.component';
+import { DeleteComponent } from './components/account/personainfo/delete/delete.component';
+import { PrivacyComponent } from './components/account/personainfo/privacy/privacy.component';
+import { AddressComponent } from './components/account/personainfo/address/address.component';
+import { PasswordComponent } from './components/account/login-security/password/password.component';
+import { ConnectedAccountsComponent } from './components/account/login-security/connected-accounts/connected-accounts.component';
+import { SocialAccountsComponent } from './components/account/login-security/social-accounts/social-accounts.component';
 
 @NgModule({
   declarations: [
+    AccountComponent,
+    DeleteComponent,
+    PrivacyComponent,
+    AddressComponent,
+    PasswordComponent,
+    ConnectedAccountsComponent,
+    SocialAccountsComponent,
+    BreadcrumbComponent,
+    CardComponent,
+    PersonainfoComponent,
+    LoginSecurityComponent,
+    NotificationsComponent,
+    BasicinfoComponent,
     AppComponent,
     HeaderComponent,
     ProfileOverviewComponent,
@@ -41,13 +67,10 @@ import { WriterComponent } from './components/writer/writer.component';
     ContentComponent,
     BadgeComponent,
     ShareComponent,
-    WriterComponent
+    WriterComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -9,7 +9,7 @@
         class="js-mega-menu navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal"
       >
         <!-- Logo -->
-        <a class="navbar-brand" href="#" aria-label="Front">
+        <a class="navbar-brand" aria-label="Front" [routerLink]="['/']">
           <img src="./assets/svg/logos/darkLogo.svg" alt="Logo" />
         </a>
         <!-- End Logo -->
@@ -39,14 +39,29 @@
                   </div>
                 </form>
               </li>
-              <li class="navbar-nav-item active">
-                <a class="nav-link" href="#homeSection">General feed</a>
+              <li class="navbar-nav-item">
+                <a
+                  class="nav-link"
+                  [routerLink]="['feed']"
+                  routerLinkActive="active"
+                  >Feed</a
+                >
               </li>
               <li class="navbar-nav-item">
-                <a class="nav-link" href="#howItWorksSection">Special feed</a>
+                <a
+                  class="nav-link"
+                  [routerLink]="['my-article']"
+                  routerLinkActive="active"
+                  >My Artical</a
+                >
               </li>
               <li class="navbar-nav-item">
-                <a class="nav-link" href="#featuresSection">Profile</a>
+                <a
+                  class="nav-link"
+                  [routerLink]="['account/personalinfo']"
+                  routerLinkActive="active"
+                  >Profile</a
+                >
               </li>
               <li class="navbar-nav-item">
                 <!-- Blog -->
