@@ -1,0 +1,30 @@
+<section id="howItWorksSection">
+    <!-- Step Section -->
+    <div class="container space-2">
+      <!-- Title -->
+      <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+        <span class="d-block small font-weight-bold text-cap mb-2"
+          >Always improving</span
+        >
+        <h2>How it works &mdash; Simple as 1, 2, 3</h2>
+      </div>
+      <!-- End Title -->
+
+      <!-- Step -->
+      <ul class="step step-md step-centered">
+        <li class="step-item" *ngFor = "let step of steps ; let i = index ">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-soft-primary">{{ i+1 }} </span>
+            <div class="step-content">
+              <h3>{{ step.name }} </h3>
+              <p>{{ step.action }}</p>
+            </div>
+          </div>
+        </li>
+
+        
+      </ul>
+      <!-- End Step -->
+    </div>
+    <!-- End Step Section -->
+  </section>

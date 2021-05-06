@@ -1,0 +1,169 @@
+<div class="position-relative border-bottom" id="homeSection">
+    <!-- Hero Carousel Main -->
+    <div
+      id="heroNav"
+      class="js-slick-carousel slick slick-equal-height"
+      data-hs-slick-carousel-options='{
+             "prevArrow": "<span class=\"fas fa-arrow-left d-none d-md-inline-block slick-arrow slick-arrow-soft-white slick-arrow-left slick-arrow-centered-y rounded-circle ml-sm-2 ml-xl-4\"></span>",
+             "nextArrow": "<span class=\"fas fa-arrow-right d-none d-md-inline-block slick-arrow slick-arrow-soft-white slick-arrow-right slick-arrow-centered-y rounded-circle mr-sm-2 mr-xl-4\"></span>",
+             "infinite": true,
+             "autoplay": true,
+             "autoplaySpeed": 10000,
+             "adaptiveHeight": true,
+             "counterSelector": "#slickCounter",
+             "counterDivider": "/",
+             "counterClassMap": {
+               "current": "slick-counter-current",
+               "total": "slick-counter-total",
+               "divider": "slick-counter-divider"
+             },
+             "dots": true,
+             "dotsClass": "slick-pagination slick-pagination-white d-md-none container position-absolute bottom-0 right-0 left-0 justify-content-start mb-6 pl-3 mx-auto",
+             "asNavFor": "#heroNavThumb"
+           }'
+    >
+      <div
+        class="js-slide gradient-y-overlay-sm-gray-900 bg-img-hero"
+        style="background-image: url(./assets/img/1920x800/img2.jpg)"
+      >
+        <!-- Slide #1 -->
+        <div
+          class="container d-md-flex align-items-md-center vh-md-70 space-top-4 space-bottom-3 space-md-0"
+        >
+          <div class="w-80 w-lg-50">
+            <span
+              class="d-block h3 text-white mb-2"
+              data-hs-slick-carousel-animation="fadeInUp"
+            >
+              BlogAll is a
+            </span>
+            <h1
+              class="text-white display-5 mb-0"
+              data-hs-slick-carousel-animation="fadeInUp"
+              data-hs-slick-carousel-animation-delay="200"
+            >
+              Blog site containing all that you're looking for
+            </h1>
+          </div>
+        </div>
+        <!-- End Slide #1 -->
+      </div>
+
+      <div
+        class="js-slide gradient-y-overlay-sm-gray-900 bg-img-hero"
+        style="background-image: url(./assets/img/1920x800/img3.jpg)"
+      >
+        <!-- Slide #2 -->
+        <div
+          class="container d-md-flex align-items-md-center vh-md-70 space-top-4 space-bottom-3 space-md-0"
+        >
+          <div class="w-80 w-lg-50">
+            <span
+              class="d-block h3 text-white mb-2"
+              data-hs-slick-carousel-animation="fadeInUp"
+            >
+              BlogAll is a
+            </span>
+            <h2
+              class="text-white display-5 mb-0"
+              data-hs-slick-carousel-animation="fadeInUp"
+              data-hs-slick-carousel-animation-delay="200"
+            >
+              Blog site containing all that you're looking for
+            </h2>
+          </div>
+        </div>
+        <!-- End Slide #2 -->
+      </div>
+    </div>  
+    <!-- End Hero Carousel Main -->
+
+    <!-- Slick Paging -->
+    <div class="container position-relative">
+      <div id="slickCounter" class="slick-counter"></div>
+    </div>
+    <!-- End Slick Paging -->
+
+    <!-- Hero Carousel Secondary -->
+    <div
+      id="heroNavThumb"
+      class="js-slick-carousel slick"
+      data-hs-slick-carousel-options='{
+             "infinite": true,
+             "autoplay": true,
+             "autoplaySpeed": 10000,
+             "isThumbs": true,
+             "asNavFor": "#heroNav"
+           }'
+    >
+      <div class="js-slide">
+        <!-- Slide #1 -->
+        <div
+          class="d-flex align-items-center bg-white position-relative vh-md-30"
+        >
+          <div class="container space-2">
+            <div class="row">
+              <div class="col-md-4">
+                <h3 class="text-muted">
+                  <span class="d-block font-weight-bold">01.</span>
+                  <span class="d-block text-primary">Advanced browsing</span>
+                </h3>
+                <p class="mb-0">
+                  Modify any content of your website or pages with a click.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-md-5 d-none d-md-inline-block bg-primary position-absolute top-0 right-0 bottom-0"
+          >
+            <div class="content-centered-y p-7">
+              <h3 class="text-white">
+                <span class="text-white">Next:</span> Wild mind
+              </h3>
+              <p class="text-white-70 mb-0">
+                Let visitors to view your content from their choice of
+                categories.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- End Slide #1 -->
+      </div>
+
+      <div class="js-slide">
+        <!-- Slide #2 -->
+        <div
+          class="d-flex align-items-center bg-white position-relative vh-md-30"
+        >
+          <div class="container space-2">
+            <div class="row">
+              <div class="col-md-4">
+                <h3 class="text-muted">
+                  <span class="d-block font-weight-bold">02.</span>
+                  <span class="d-block text-dark">Wild mind</span>
+                </h3>
+                <p class="mb-0">Share all you want with everyone</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-md-5 d-none d-md-inline-block bg-dark position-absolute top-0 right-0 bottom-0"
+          >
+            <div class="content-centered-y p-7">
+              <h3 class="text-white">
+                <span class="text-white">Prev:</span> Advanced browsing
+              </h3>
+              <p class="text-white-70 mb-0">
+                Modify any content of your website or pages with a click.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- End Slide #2 -->
+      </div>
+    </div>
+    <!-- End Hero Carousel Secondary -->
+  </div>

@@ -40,6 +40,9 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { BlogCardComponent } from './components/blog-card/blog-card.component';
+import { HeroSectionComponent } from './components/hero-section/hero-section.component';
+import { HowItWorksSectionComponent } from './components/how-it-works-section/how-it-works-section.component';
+import { RatingsSectionComponent } from './components/ratings-section/ratings-section.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +82,9 @@ import { BlogCardComponent } from './components/blog-card/blog-card.component';
     AuthComponent,
     FeedComponent,
     BlogCardComponent,
+    HeroSectionComponent,
+    HowItWorksSectionComponent,
+    RatingsSectionComponent,
 
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
