@@ -3,5 +3,8 @@
 @import "~font-awesome";
 @import "assets/css/docs.min.css";
 @import "assets/css/snippets.min.css";
-@import "assets/css/theme.css";
 @import "assets/css/theme.min.css";
+
+.hbout {
+  margin-top: 107.713px;
+}
