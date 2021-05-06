@@ -39,6 +39,7 @@ import { SocialAccountsComponent } from './components/account/login-security/soc
 import { HomeComponent } from './components/home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { FeedComponent } from './components/feed/feed.component';
+import { BlogCardComponent } from './components/blog-card/blog-card.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,8 @@ import { FeedComponent } from './components/feed/feed.component';
     HomeComponent,
     AuthComponent,
     FeedComponent,
+    BlogCardComponent,
+
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],
