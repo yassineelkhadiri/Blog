@@ -1,0 +1,61 @@
+<section id="testimonialsSection">
+    <div class="container space-2">
+      <!-- Title -->
+      <div class="container w-md-80 w-lg-50 mb-5 mb-md-9">
+        <h2 class="h1">BlogAll is loved by readers worldwide</h2>
+      </div>
+      <!-- End Title -->
+
+      <!-- Testimonials Section -->
+      <div class="row">
+        <!-- Testimonials -->
+        <div class="col-md-6 col-lg-4 mb-3 mb-md-5 mb-lg-0" *ngFor = " let rating of ratings">
+          <div class="card h-100" >
+            <div class="card-body">
+                <ul class="list-inline text-warning">
+                    <li class="list-inline-item mx-0">
+                      <i class="fa fa-star"></i>
+                    </li>
+                    <li class="list-inline-item mx-0">
+                      <i class="fa fa-star"></i>
+                    </li>
+                    <li class="list-inline-item mx-0">
+                      <i class="fa fa-star"></i>
+                    </li>
+                    <li class="list-inline-item mx-0">
+                      <i class="fa fa-star"></i>
+                    </li>
+                    <li class="list-inline-item mx-0">
+                      <i class="fa fa-star"></i>
+                    </li>
+                  </ul>
+              <div class="mb-auto">
+                <p class="text-dark mb-0">
+                  {{ rating.review }}
+                </p>
+              </div>
+            </div>
+
+            <div class="card-footer border-0 bg-transparent pt-0 px-5 pb-5">
+              <div class="media align-items-center">
+                <div class="avatar avatar-circle mr-3">
+                  <img
+                    class="avatar-img"
+                    src="{{ rating.user.img }}"
+                    alt="Image Description"
+                  />
+                </div>
+                <div class="media-body">
+                  <h4 class="mb-0">{{ rating.user.name }}</h4>
+                  <small class="d-block text-body">{{ rating.user.job }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Testimonials -->
+
+        
+      </div>
+    </div>
+  </section>
