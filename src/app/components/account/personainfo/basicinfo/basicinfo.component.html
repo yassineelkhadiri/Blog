@@ -3,10 +3,8 @@
     <h5 class="card-title">Basic info</h5>
   </div>
 
-  <!-- Body -->
   <div class="card-body">
     <form (ngSubmit)="onSave(f)" #f="ngForm">
-      <!-- Form Group -->
       <div class="row form-group">
         <label class="col-sm-3 col-form-label input-label">Profile photo</label>
 
@@ -16,12 +14,7 @@
               class="avatar avatar-xl avatar-circle mr-4"
               for="avatarUploader"
             >
-              <img
-                id="avatarImg"
-                class="avatar-img"
-                src="./assets/img/160x160/img1.jpg"
-                alt="Image Description"
-              />
+              <img class="avatar-img" src="{{ url }}" alt="Image Description" />
             </label>
 
             <div class="media-body">
@@ -34,22 +27,18 @@
                   class="js-file-attach file-attachment-btn-label"
                   id="avatarUploader"
                   data-hs-file-attach-options='{
-                          "textTarget": "#avatarImg",
-                          "mode": "image",
-                          "targetAttr": "src",
-                          "allowTypes": [".png", ".jpeg", ".jpg"]
-                       }'
+                            "textTarget": "#avatarImg",
+                            "mode": "image",
+                            "targetAttr": "src",
+                            "allowTypes": [".png", ".jpeg", ".jpg"]
+                         }'
+                  (change)="onFileChanged($event)"
                 />
               </div>
-
-              <a class="btn btn-sm btn-white mb-2 mb-sm-0" href="javascript:;"
-                >Delete</a
-              >
             </div>
           </div>
         </div>
       </div>
-      <!-- End Form Group -->
 
       <!-- Form Group -->
       <div class="row form-group">
@@ -62,22 +51,18 @@
             <input
               type="text"
               class="form-control"
-              name="firstName"
-              id="firstNameLabel"
+              name="ftName"
               placeholder="Fname"
-              aria-label="Clarice"
-              value="Natalie"
-              ngModel
+              required
+              [(ngModel)]="user.fname"
             />
             <input
               type="text"
               class="form-control"
-              name="lastName"
-              id="lastNameLabel"
+              name="lName"
               placeholder="Lname"
-              aria-label="Boone"
-              value="Curtis"
-              ngModel
+              required
+              [(ngModel)]="user.lname"
             />
           </div>
         </div>
@@ -95,11 +80,11 @@
             type="email"
             class="form-control"
             name="email"
-            id="emailLabel"
             placeholder="example@email.com"
-            aria-label="clarice@example.com"
-            value="natalie@example.com"
-            ngModel
+            required
+            email
+            disabled
+            [(ngModel)]="user.mail"
           />
         </div>
       </div>
@@ -109,10 +94,10 @@
       <div
         class="js-add-field row form-group"
         data-hs-add-field-options='{
-              "template": "#addPhoneFieldTemplate",
-              "container": "#addPhoneFieldContainer",
-              "defaultCreated": 0
-            }'
+                "template": "#addPhoneFieldTemplate",
+                "container": "#addPhoneFieldContainer",
+                "defaultCreated": 0
+              }'
       >
         <label for="phoneLabel" class="col-sm-3 col-form-label input-label"
           >Phone <span class="input-label-secondary">(Optional)</span></label
@@ -124,10 +109,10 @@
               type="text"
               class="form-control"
               name="phone"
-              id="phoneLabel"
               placeholder="xxxxxxxx"
-              value="55123456"
-              ngModel
+              [(ngModel)]="user.phone"
+              value="0"
+              minlength="8"
             />
           </div>
 
@@ -149,10 +134,11 @@
                 <input
                   type="radio"
                   class="custom-control-input"
-                  name="genderTypeRadio"
+                  name="gender"
                   id="genderTypeRadio1"
-                  ngModel
+                  [(ngModel)]="user.gender"
                   value="male"
+                  required
                 />
                 <label class="custom-control-label" for="genderTypeRadio1"
                   >Male</label
@@ -167,10 +153,11 @@
                 <input
                   type="radio"
                   class="custom-control-input"
-                  name="genderTypeRadio"
+                  name="gender"
                   id="genderTypeRadio2"
-                  ngModel
+                  [(ngModel)]="user.gender"
                   value="Female"
+                  required
                   checked
                 />
                 <label class="custom-control-label" for="genderTypeRadio2"
@@ -193,10 +180,11 @@
           <div class="quill-custom">
             <textarea
               class="form-control"
-              id="exampleFormControlTextarea1"
               rows="3"
               name="bio"
-              ngModel
+              placeholder="Describe your self here"
+              [(ngModel)]="user.bio"
+              required
             ></textarea>
           </div>
           <!-- End Quill -->
@@ -204,7 +192,9 @@
       </div>
       <!-- End Form Group -->
       <div class="card-footer d-flex justify-content-end">
-        <button class="btn btn-primary" type="submit">Save Changes</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+          Update
+        </button>
       </div>
     </form>
   </div>

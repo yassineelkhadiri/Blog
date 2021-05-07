@@ -39,6 +39,7 @@ import { SocialAccountsComponent } from './components/account/login-security/soc
 import { HomeComponent } from './components/home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { FeedComponent } from './components/feed/feed.component';
+import { BasicformComponent } from './components/basicform/basicform.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { FeedComponent } from './components/feed/feed.component';
     HomeComponent,
     AuthComponent,
     FeedComponent,
+    BasicformComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],

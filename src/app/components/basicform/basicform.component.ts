@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/model/user.model';
+import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
-  selector: 'app-basicinfo',
-  templateUrl: './basicinfo.component.html',
-  styleUrls: ['./basicinfo.component.css'],
+  selector: 'app-basicform',
+  templateUrl: './basicform.component.html',
+  styleUrls: ['./basicform.component.css'],
 })
-export class BasicinfoComponent implements OnInit {
-  constructor(private usersService: UsersService) {}
+export class BasicformComponent implements OnInit {
+  constructor(private router: Router, private usersService: UsersService) {}
 
-  ngOnInit(): void {
-    this.user = this.usersService.getLoggedUser();
-  }
-
+  ngOnInit(): void {}
   user: User;
   url: any = './assets/img/official/profile.png';
 
@@ -28,12 +26,15 @@ export class BasicinfoComponent implements OnInit {
       f.phone,
       f.bio,
       './assets/img/official/profile.png',
-      this.user.posts,
-      this.user.followers,
-      this.user.following
+      0,
+      0,
+      0
     );
 
-    this.usersService.updateUser(this.user);
+    this.usersService.addUser(this.user);
+    this.usersService.setLoggedUser(this.user);
+
+    this.router.navigate(['/feed']);
   }
 
   onFileChanged(event) {
