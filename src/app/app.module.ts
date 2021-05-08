@@ -44,6 +44,7 @@ import { BlogCardComponent } from './components/blog-card/blog-card.component';
 import { HeroSectionComponent } from './components/hero-section/hero-section.component';
 import { HowItWorksSectionComponent } from './components/how-it-works-section/how-it-works-section.component';
 import { RatingsSectionComponent } from './components/ratings-section/ratings-section.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,13 @@ import { RatingsSectionComponent } from './components/ratings-section/ratings-se
     HowItWorksSectionComponent,
     RatingsSectionComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    SwiperModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
