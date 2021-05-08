@@ -31,8 +31,8 @@ export class BasicformComponent implements OnInit {
       0
     );
 
-    this.usersService.addUser(this.user);
     this.usersService.setLoggedUser(this.user);
+    this.usersService.createAndStoreUser(this.user);
 
     this.router.navigate(['/feed']);
   }

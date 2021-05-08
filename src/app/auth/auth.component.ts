@@ -20,6 +20,9 @@ export class AuthComponent {
     private usersService: UsersService
   ) {}
 
+  ngOnInit(): void {
+    this.usersService.fetchUsers();
+  }
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
   }
@@ -28,6 +31,7 @@ export class AuthComponent {
     if (!form.valid) {
       return;
     }
+    this.usersService.logger();
     const email = form.value.email;
     const password = form.value.password;
 
@@ -36,12 +40,10 @@ export class AuthComponent {
     if (this.isLoginMode) {
       this.authService.login(email, password).subscribe(
         (resData) => {
-          console.log(resData);
           this.isLoading = false;
           this.router.navigate(['/feed']);
         },
         (errorMessage) => {
-          console.log(errorMessage);
           this.error = errorMessage;
           this.isLoading = false;
         }
@@ -50,12 +52,10 @@ export class AuthComponent {
     } else {
       this.authService.signup(email, password).subscribe(
         (resData) => {
-          console.log(resData);
           this.isLoading = false;
           this.router.navigate(['/insertinfo']);
         },
         (errorMessage) => {
-          console.log(errorMessage);
           this.error = errorMessage;
           this.isLoading = false;
         }

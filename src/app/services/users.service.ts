@@ -1,35 +1,54 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  users: User[] = [
-    {
-      fname: 'sabri',
-      lname: 'gharbi',
-      gender: 'male',
-      mail: 'sabri@email.com',
-      phone: 12345678,
-      bio: 'hello !',
-      photo: './assets/img/official/profile.png',
-      posts: 196,
-      followers: 996,
-      following: 524,
-    },
-  ];
+  users: User[] = [];
 
   loggedUser: User;
+  logger() {
+    console.log(this.users);
+  }
+
+  createAndStoreUser(user: User) {
+    this.http
+      .post<{ name: string }>(
+        'https://blog-92a12-default-rtdb.europe-west1.firebasedatabase.app/users.json',
+        user
+      )
+      .subscribe();
+  }
+
+  fetchUsers() {
+    this.http
+      .get<{ [key: string]: User }>(
+        'https://blog-92a12-default-rtdb.europe-west1.firebasedatabase.app/users.json'
+      )
+      .pipe(
+        map((responseData) => {
+          const usersArray: User[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              usersArray.push(responseData[key]);
+            }
+          }
+
+          return usersArray;
+        })
+      )
+      .subscribe((users) => {
+        this.setUsers(users);
+      });
+  }
 
   setMail(email: string) {
     this.loggedUser = new User('', '', '', email, 0, '', '', 0, 0, 0);
-  }
-
-  logger() {
-    console.log(this.loggedUser);
   }
 
   findLogger(mail: string) {
@@ -49,13 +68,19 @@ export class UsersService {
     const i = this.users.indexOf(u);
     this.users.splice(i, 1);
   }
-  addUser(user: User) {
-    this.users.push(user);
-  }
+
   updateUser(u: User) {
     const i = this.users.indexOf(
       this.users.find((user) => user.mail == u.mail)
     );
     this.users[i] = u;
+  }
+
+  setUsers(users: User[]) {
+    this.users = users;
+  }
+
+  getUsers() {
+    return this.users;
   }
 }
