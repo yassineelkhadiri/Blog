@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user.model';
-import { UserService } from 'src/app/services/user.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-card',
@@ -8,10 +8,10 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./card.component.css'],
 })
 export class CardComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor(private usersService: UsersService) {}
 
-  user: User = new User();
+  user: User;
   ngOnInit(): void {
-    this.user = this.userService.getUser();
+    this.user = this.usersService.getLoggedUser();
   }
 }

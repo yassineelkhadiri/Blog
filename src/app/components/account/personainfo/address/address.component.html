@@ -1538,7 +1538,6 @@
               id="cityLabel"
               placeholder="City"
               aria-label="City"
-              value="London"
             />
           </div>
           <input
@@ -1569,84 +1568,16 @@
             id="addressLine1Label"
             placeholder="Your address"
             aria-label="Your address"
-            value="45 Roker Terrace, Latheronwheel"
           />
         </div>
       </div>
       <!-- End Form Group -->
-
-      <!-- Form Group -->
-      <div
-        class="js-add-field row form-group"
-        data-hs-add-field-options='{
-              "template": "#addAddressFieldTemplate",
-              "container": "#addAddressFieldContainer",
-              "defaultCreated": 0
-            }'
-      >
-        <label
-          for="addressLine2Label"
-          class="col-sm-3 col-form-label input-label"
-          >Address line 2
-          <span class="input-label-secondary">(Optional)</span></label
-        >
-
-        <div class="col-sm-9">
-          <input
-            type="text"
-            class="form-control"
-            name="addressLine2"
-            id="addressLine2Label"
-            placeholder="Your address"
-            aria-label="Your address"
-          />
-
-          <!-- Container For Input Field -->
-          <div id="addAddressFieldContainer"></div>
-
-          <a
-            href="javascript:;"
-            class="js-create-field form-link btn btn-xs btn-no-focus btn-ghost-primary"
-          >
-            <i class="fas fa-plus mr-1"></i>
-            Add address
-          </a>
-        </div>
-      </div>
-      <!-- End Form Group -->
-
-      <!-- Add Phone Input Field -->
-      <div id="addAddressFieldTemplate" style="display: none">
-        <div class="input-group-add-field">
-          <input
-            type="text"
-            class="form-control"
-            data-name="addressLine"
-            placeholder="Your address"
-            aria-label="Your address"
-          />
-
-          <a
-            class="js-delete-field input-group-add-field-delete"
-            href="javascript:;"
-          >
-            <i class="fas fa-times"></i>
-          </a>
-        </div>
-      </div>
-      <!-- End Add Phone Input Field -->
 
       <!-- Form Group -->
       <div class="row form-group">
         <label for="zipCodeLabel" class="col-sm-3 col-form-label input-label"
           >Zip code
-          <i
-            class="far fa-question-circle text-body ml-1"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="You can find your code in a postal address."
-          ></i
-        ></label>
+        </label>
 
         <div class="col-sm-9">
           <input
@@ -1656,7 +1587,6 @@
             id="zipCodeLabel"
             placeholder="Your zip code"
             aria-label="Your zip code"
-            value="KW5 8NW"
             data-hs-mask-options='{
                    "template": "AA0 0AA"
                  }'

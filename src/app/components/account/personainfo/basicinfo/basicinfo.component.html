@@ -3,10 +3,8 @@
     <h5 class="card-title">Basic info</h5>
   </div>
 
-  <!-- Body -->
   <div class="card-body">
-    <form>
-      <!-- Form Group -->
+    <form (ngSubmit)="onSave(f)" #f="ngForm">
       <div class="row form-group">
         <label class="col-sm-3 col-form-label input-label">Profile photo</label>
 
@@ -16,12 +14,7 @@
               class="avatar avatar-xl avatar-circle mr-4"
               for="avatarUploader"
             >
-              <img
-                id="avatarImg"
-                class="avatar-img"
-                src="./assets/img/160x160/img1.jpg"
-                alt="Image Description"
-              />
+              <img class="avatar-img" src="{{ url }}" alt="Image Description" />
             </label>
 
             <div class="media-body">
@@ -34,54 +27,42 @@
                   class="js-file-attach file-attachment-btn-label"
                   id="avatarUploader"
                   data-hs-file-attach-options='{
-                          "textTarget": "#avatarImg",
-                          "mode": "image",
-                          "targetAttr": "src",
-                          "allowTypes": [".png", ".jpeg", ".jpg"]
-                       }'
+                            "textTarget": "#avatarImg",
+                            "mode": "image",
+                            "targetAttr": "src",
+                            "allowTypes": [".png", ".jpeg", ".jpg"]
+                         }'
+                  (change)="onFileChanged($event)"
                 />
               </div>
-
-              <a class="btn btn-sm btn-white mb-2 mb-sm-0" href="javascript:;"
-                >Delete</a
-              >
             </div>
           </div>
         </div>
       </div>
-      <!-- End Form Group -->
 
       <!-- Form Group -->
       <div class="row form-group">
         <label for="firstNameLabel" class="col-sm-3 col-form-label input-label"
           >Full name
-          <i
-            class="far fa-question-circle text-body ml-1"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="Displayed on public forums, such as Front."
-          ></i
-        ></label>
+        </label>
 
         <div class="col-sm-9">
           <div class="input-group">
             <input
               type="text"
               class="form-control"
-              name="firstName"
-              id="firstNameLabel"
-              placeholder="Clarice"
-              aria-label="Clarice"
-              value="Natalie"
+              name="ftName"
+              placeholder="Fname"
+              required
+              [(ngModel)]="user.fname"
             />
             <input
               type="text"
               class="form-control"
-              name="lastName"
-              id="lastNameLabel"
-              placeholder="Boone"
-              aria-label="Boone"
-              value="Curtis"
+              name="lName"
+              placeholder="Lname"
+              required
+              [(ngModel)]="user.lname"
             />
           </div>
         </div>
@@ -99,10 +80,11 @@
             type="email"
             class="form-control"
             name="email"
-            id="emailLabel"
-            placeholder="clarice@example.com"
-            aria-label="clarice@example.com"
-            value="natalie@example.com"
+            placeholder="example@email.com"
+            required
+            email
+            disabled
+            [(ngModel)]="user.mail"
           />
         </div>
       </div>
@@ -112,10 +94,10 @@
       <div
         class="js-add-field row form-group"
         data-hs-add-field-options='{
-              "template": "#addPhoneFieldTemplate",
-              "container": "#addPhoneFieldContainer",
-              "defaultCreated": 0
-            }'
+                "template": "#addPhoneFieldTemplate",
+                "container": "#addPhoneFieldContainer",
+                "defaultCreated": 0
+              }'
       >
         <label for="phoneLabel" class="col-sm-3 col-form-label input-label"
           >Phone <span class="input-label-secondary">(Optional)</span></label
@@ -125,97 +107,20 @@
           <div class="input-group align-items-center">
             <input
               type="text"
-              class="js-masked-input form-control"
+              class="form-control"
               name="phone"
-              id="phoneLabel"
-              placeholder="+(xxx)xx-xxx-xxx"
-              aria-label="+(xxx)xx-xxx-xxx"
-              value="+216-55-123-456"
-              data-hs-mask-options='{
-                     "template": "+(000)00-000-000"
-                   }'
+              placeholder="xxxxxxxx"
+              [(ngModel)]="user.phone"
+              value="0"
+              minlength="8"
             />
-
-            <div class="input-group-append">
-              <!-- Select -->
-              <select
-                class="js-custom-select custom-select dropdown-toggle"
-                name="phoneSelect"
-                data-hs-select2-options='{
-                      "minimumResultsForSearch": "Infinity",
-                      "customClass": "custom-select",
-                      "dropdownAutoWidth": true,
-                      "width": true
-                    }'
-              >
-                <option value="Mobile" selected>Mobile</option>
-                <option value="Home">Home</option>
-                <option value="Work">Work</option>
-                <option value="Fax">Fax</option>
-                <option value="Direct">Direct</option>
-              </select>
-              <!-- End Select -->
-            </div>
           </div>
 
           <!-- Container For Input Field -->
           <div id="addPhoneFieldContainer"></div>
-
-          <a
-            href="javascript:;"
-            class="js-create-field form-link btn btn-xs btn-no-focus btn-ghost-primary"
-          >
-            <i class="fas fa-plus mr-1"></i>
-            Add phone
-          </a>
         </div>
       </div>
       <!-- End Form Group -->
-
-      <!-- Add Phone Input Field -->
-      <div id="addPhoneFieldTemplate" style="display: none">
-        <div class="input-group input-group-add-field">
-          <input
-            type="text"
-            class="js-masked-input form-control"
-            data-name="additionlPhone"
-            placeholder="+x(xxx)xxx-xx-xx"
-            aria-label="+x(xxx)xxx-xx-xx"
-            data-hs-mask-options='{
-                   "template": "+0(000)000-00-00"
-                 }'
-          />
-
-          <div class="input-group-append">
-            <!-- Select -->
-            <select
-              class="js-custom-select-dynamic btn btn-white dropdown-toggle"
-              data-name="additionlPhoneSelect"
-              data-hs-select2-options='{
-                    "minimumResultsForSearch": "Infinity",
-                    "customClass": "custom-select",
-                    "dropdownAutoWidth": true,
-                    "width": true
-                  }'
-            >
-              <option value="Mobile" selected>Mobile</option>
-              <option value="Home">Home</option>
-              <option value="Work">Work</option>
-              <option value="Fax">Fax</option>
-              <option value="Direct">Direct</option>
-            </select>
-            <!-- End Select -->
-          </div>
-
-          <a
-            class="js-delete-field input-group-add-field-delete"
-            href="javascript:;"
-          >
-            <i class="fas fa-times"></i>
-          </a>
-        </div>
-      </div>
-      <!-- End Add Phone Input Field -->
 
       <!-- Form Group -->
       <div class="row form-group">
@@ -229,8 +134,11 @@
                 <input
                   type="radio"
                   class="custom-control-input"
-                  name="genderTypeRadio"
+                  name="gender"
                   id="genderTypeRadio1"
+                  [(ngModel)]="user.gender"
+                  value="male"
+                  required
                 />
                 <label class="custom-control-label" for="genderTypeRadio1"
                   >Male</label
@@ -245,28 +153,15 @@
                 <input
                   type="radio"
                   class="custom-control-input"
-                  name="genderTypeRadio"
+                  name="gender"
                   id="genderTypeRadio2"
+                  [(ngModel)]="user.gender"
+                  value="Female"
+                  required
                   checked
                 />
                 <label class="custom-control-label" for="genderTypeRadio2"
                   >Female</label
-                >
-              </div>
-            </div>
-            <!-- End Custom Radio -->
-
-            <!-- Custom Radio -->
-            <div class="form-control">
-              <div class="custom-control custom-radio">
-                <input
-                  type="radio"
-                  class="custom-control-input"
-                  name="genderTypeRadio"
-                  id="genderTypeRadio3"
-                />
-                <label class="custom-control-label" for="genderTypeRadio3"
-                  >Other</label
                 >
               </div>
             </div>
@@ -283,63 +178,24 @@
         <div class="col-sm-9">
           <!-- Quill -->
           <div class="quill-custom">
-            <div
-              class="js-quill"
-              style="min-height: 15rem"
-              data-hs-quill-options='{
-                 "placeholder": "Type your message...",
-                  "modules": {
-                    "toolbar": [
-                      ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
-                    ]
-                  }
-                 }'
-            >
-              Creative mind at BlogAll
-            </div>
+            <textarea
+              class="form-control"
+              rows="3"
+              name="bio"
+              placeholder="Describe your self here"
+              [(ngModel)]="user.bio"
+              required
+            ></textarea>
           </div>
           <!-- End Quill -->
         </div>
       </div>
       <!-- End Form Group -->
-
-      <!-- Form Group -->
-      <div class="row align-items-center">
-        <label
-          for="disableAdCheckbox"
-          class="col-sm-3 col-form-label input-label"
-          >Disable ads
-          <span class="badge badge-primary text-uppercase ml-1"
-            >PRO</span
-          ></label
-        >
-
-        <div class="col-sm-9">
-          <!-- Custom Checkbox -->
-          <div class="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              class="custom-control-input"
-              id="disableAdCheckbox"
-            />
-            <label class="custom-control-label" for="disableAdCheckbox"
-              >With your Pro account, you can disable ads across the
-              site.</label
-            >
-          </div>
-          <!-- End Custom Checkbox -->
-        </div>
+      <div class="card-footer d-flex justify-content-end">
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+          Update
+        </button>
       </div>
-      <!-- End Form Group -->
     </form>
   </div>
-  <!-- End Body -->
-
-  <!-- Footer -->
-  <div class="card-footer d-flex justify-content-end">
-    <a class="btn btn-white" href="javascript:;">Cancel</a>
-    <span class="mx-2"></span>
-    <a class="btn btn-primary" href="javascript:;">Save Changes</a>
-  </div>
-  <!-- End Footer -->
 </div>

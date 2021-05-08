@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap";
 @import "~font-awesome";
+@import "~swiper/swiper-bundle";
+
 @import "assets/css/docs.min.css";
 @import "assets/css/snippets.min.css";
 @import "assets/css/theme.min.css";

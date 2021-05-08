@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { UsersService } from '../services/users.service';
 
 import { AuthService, AuthResponseData } from './auth.service';
 
@@ -14,8 +14,15 @@ export class AuthComponent {
   isLoading = false;
   error: string = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private usersService: UsersService
+  ) {}
 
+  ngOnInit(): void {
+    this.usersService.fetchUsers();
+  }
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
   }
@@ -24,31 +31,36 @@ export class AuthComponent {
     if (!form.valid) {
       return;
     }
+    this.usersService.logger();
     const email = form.value.email;
     const password = form.value.password;
-
-    let authObs: Observable<AuthResponseData>;
 
     this.isLoading = true;
 
     if (this.isLoginMode) {
-      authObs = this.authService.login(email, password);
+      this.authService.login(email, password).subscribe(
+        (resData) => {
+          this.isLoading = false;
+          this.router.navigate(['/feed']);
+        },
+        (errorMessage) => {
+          this.error = errorMessage;
+          this.isLoading = false;
+        }
+      );
+      this.usersService.findLogger(email);
     } else {
-      authObs = this.authService.signup(email, password);
+      this.authService.signup(email, password).subscribe(
+        (resData) => {
+          this.isLoading = false;
+          this.router.navigate(['/insertinfo']);
+        },
+        (errorMessage) => {
+          this.error = errorMessage;
+          this.isLoading = false;
+        }
+      );
     }
-
-    authObs.subscribe(
-      (resData) => {
-        console.log(resData);
-        this.isLoading = false;
-        this.router.navigate(['/feed']);
-      },
-      (errorMessage) => {
-        console.log(errorMessage);
-        this.error = errorMessage;
-        this.isLoading = false;
-      }
-    );
 
     form.reset();
   }
