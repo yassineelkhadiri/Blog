@@ -10,13 +10,15 @@
         <div class="avatar avatar-circle mr-3">
           <img
             class="avatar-img"
-            src="./assets/img/official/profile.png"
+            src="{{ comment.img }}"
             alt="Image Description"
           />
         </div>
         <div class="media-body">
           <div class="d-flex justify-content-between align-items-center">
-            <span class="h5 mb-0"> {{ comments.name }}</span>
+            <span class="h5 mb-0">
+              {{ comments.fname }} {{ comments.lname }}</span
+            >
             <small class="text-muted">{{ comment.date }}</small>
           </div>
         </div>
@@ -25,50 +27,20 @@
       <p>
         {{ comment.text }}
       </p>
-
-      <a class="font-weight-bold" href="#">Reply</a>
-
-      <ul class="list-unstyled mt-5">
-        <!-- Comment -->
-        <li class="mb-5" *ngIf="comment.reply !== null">
-          <div class="border-left border-3 pl-4">
-            <div class="media align-items-center mb-2">
-              <div class="avatar avatar-circle mr-3">
-                <img
-                  class="avatar-img"
-                  src="{{ comment.reply.img }}"
-                  alt="Image Description"
-                />
-              </div>
-              <div class="media-body">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="h5 mb-0">{{ comment.reply.name }}</span>
-                  <small class="text-muted">{{ comment.reply.date }}</small>
-                </div>
-              </div>
-            </div>
-
-            <p>{{ comment.reply.text }}.</p>
-
-            <a class="font-weight-bold" href="#">Reply</a>
-          </div>
-        </li>
-        <!-- End Comment -->
-      </ul>
     </li>
     <!-- End Comment -->
-    <form class="js-validate">
+    <form (ngSubmit)="onComment(f)" #f="ngForm">
       <div class="form-row">
         <div class="col-12 mb-sm-3">
           <div class="js-form-message form-group">
-            <label class="input-label">Comment</label>
             <textarea
               class="form-control"
               rows="7"
               id="descriptionTextarea"
               placeholder="Comment"
               required
-              data-msg="Please enter your message."
+              name="text"
+              ngModel
             ></textarea>
           </div>
         </div>
@@ -78,6 +50,7 @@
         <button
           type="submit"
           class="btn btn-primary btn-wide transition-3d-hover"
+          [disabled]="!f.valid"
         >
           Submit
         </button>

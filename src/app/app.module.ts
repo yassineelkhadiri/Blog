@@ -11,9 +11,7 @@ import { ArticleOverviewComponent } from './components/article-overview/article-
 import { FooterComponent } from './shared/footer/footer.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ArticleComponent } from './components/article/article.component';
-import { QuoteComponent } from './components/quote/quote.component';
 import { CommentComponent } from './components/comment/comment.component';
-import { ReplyComponent } from './components/reply/reply.component';
 import { WriterComponent } from './components/writer/writer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AccountComponent } from './components/account/account.component';
@@ -63,9 +61,7 @@ import { NewpostComponent } from './components/newpost/newpost.component';
     FooterComponent,
     ProfileComponent,
     ArticleComponent,
-    QuoteComponent,
     CommentComponent,
-    ReplyComponent,
     WriterComponent,
     HomeComponent,
     AuthComponent,

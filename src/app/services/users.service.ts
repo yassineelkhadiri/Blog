@@ -10,11 +10,7 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   users: User[] = [];
-
   loggedUser: User;
-  logger() {
-    console.log(this.users);
-  }
 
   createAndStoreUser(user: User) {
     this.http
@@ -55,6 +51,10 @@ export class UsersService {
     const i = this.users.indexOf(this.users.find((user) => user.mail == mail));
 
     this.loggedUser = this.users[i];
+  }
+
+  getTheUser(mail: string) {
+    return this.users.find((user) => user.mail == mail);
   }
 
   getLoggedUser() {

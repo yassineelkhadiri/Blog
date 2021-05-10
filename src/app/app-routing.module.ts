@@ -17,6 +17,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
+  { path: 'article', component: ArticleComponent, canActivate: [AuthGuard] },
+
   {
     path: 'insertinfo',
     component: BasicformComponent,
@@ -28,7 +30,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [{ path: 'newpost', component: NewpostComponent }],
   },
-  { path: 'article', component: ArticleComponent },
   {
     path: 'settings',
     component: AccountComponent,
