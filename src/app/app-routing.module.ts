@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -10,6 +10,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { BasicformComponent } from './components/basicform/basicform.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { HomeComponent } from './components/home/home.component';
+import { NewpostComponent } from './components/newpost/newpost.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard],
+    children: [{ path: 'newpost', component: NewpostComponent }],
   },
   { path: 'article', component: ArticleComponent },
   {

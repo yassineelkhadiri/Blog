@@ -1,0 +1,102 @@
+<div class="container space-top-3 space-bottom-2">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">New Post</h5>
+    </div>
+
+    <div class="card-body">
+      <form (ngSubmit)="onSave(f)" #f="ngForm">
+        <div class="row form-group">
+          <label class="col-sm-3 col-form-label input-label">Picture</label>
+
+          <div class="col-sm-9">
+            <div class="media align-items-center">
+              <div class="media-body">
+                <div
+                  class="btn btn-sm btn-primary file-attachment-btn mb-2 mb-sm-0 mr-2"
+                >
+                  Upload Picture
+                  <input
+                    type="file"
+                    class="js-file-attach file-attachment-btn-label"
+                    data-hs-file-attach-options='{
+                    "textTarget": "#avatarImg", "mode": "image", "targetAttr":
+                    "src", "allowTypes": [".png", ".jpeg", ".jpg"]
+                    }'
+                    (change)="onFileChanged($event)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Group -->
+        <div class="row form-group">
+          <label for="title" class="col-sm-3 col-form-label input-label"
+            >Title
+          </label>
+
+          <div class="col-sm-9">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                name="title"
+                placeholder="Title"
+                ngModel
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <!-- End Form Group -->
+
+        <!-- Form Group -->
+        <div class="row form-group">
+          <label class="col-sm-3 col-form-label input-label">Resume</label>
+
+          <div class="col-sm-9">
+            <!-- Quill -->
+            <div class="quill-custom">
+              <textarea
+                class="form-control"
+                rows="3"
+                name="resume"
+                ngModel
+                required
+              ></textarea>
+            </div>
+            <!-- End Quill -->
+          </div>
+        </div>
+        <!-- End Form Group -->
+
+        <!-- Form Group -->
+        <div class="row form-group">
+          <label class="col-sm-3 col-form-label input-label">Contenet</label>
+
+          <div class="col-sm-9">
+            <!-- Quill -->
+            <div class="quill-custom">
+              <textarea
+                class="form-control"
+                rows="6"
+                name="bio"
+                ngModel
+                required
+              ></textarea>
+            </div>
+            <!-- End Quill -->
+          </div>
+        </div>
+        <!-- End Form Group -->
+        <div class="card-footer d-flex justify-content-end">
+          <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+            Add Artical
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

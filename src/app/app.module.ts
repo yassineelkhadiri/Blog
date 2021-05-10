@@ -45,6 +45,7 @@ import { HeroSectionComponent } from './components/hero-section/hero-section.com
 import { HowItWorksSectionComponent } from './components/how-it-works-section/how-it-works-section.component';
 import { RatingsSectionComponent } from './components/ratings-section/ratings-section.component';
 import { SwiperModule } from 'swiper/angular';
+import { NewpostComponent } from './components/newpost/newpost.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { SwiperModule } from 'swiper/angular';
     HeroSectionComponent,
     HowItWorksSectionComponent,
     RatingsSectionComponent,
+    NewpostComponent,
   ],
   imports: [
     BrowserModule,

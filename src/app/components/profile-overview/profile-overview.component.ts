@@ -15,4 +15,8 @@ export class ProfileOverviewComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.usersService.getLoggedUser();
   }
+  showpost = false;
+  show() {
+    this.showpost = !this.showpost;
+  }
 }
