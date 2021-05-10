@@ -31,7 +31,7 @@ export class AuthComponent {
     if (!form.valid) {
       return;
     }
-    this.usersService.logger();
+
     const email = form.value.email;
     const password = form.value.password;
 

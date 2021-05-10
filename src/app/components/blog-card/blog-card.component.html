@@ -1,29 +1,31 @@
-<article class="row align-items-lg-center mb-3" >
-    <div class="col-lg-8">
-      <img
-        class="img-fluid rounded-lg"
-        src="{{ article.img }}"
-        alt="Image Description"
-      />
+<article class="row align-items-lg-center mb-3">
+  <div class="col-lg-8">
+    <img
+      [routerLink]="['/article']"
+      (click)="showArticle()"
+      class="img-fluid rounded-lg"
+      src="{{ article.img }}"
+      alt="Image Description"
+    />
+  </div>
+  <div class="col-lg-4">
+    <div class="py-5 px-lg-3">
+      <span class="d-block mb-2">
+        <a class="small text-body font-weight-bold text-cap" href="#">{{
+          article.categorie
+        }}</a>
+      </span>
+      <h2>
+        <a class="text-inherit" href="blog-single-article.html">
+          {{ article.title }}</a
+        >
+      </h2>
+      <p>
+        {{ article.resume }}
+      </p>
+      <a [routerLink]="['/article']" (click)="showArticle()"
+        >Read more <i class="fa fa-angle-right fa-sm ml-1"></i
+      ></a>
     </div>
-    <div class="col-lg-4">
-      <div class="py-5 px-lg-3">
-        <span class="d-block mb-2">
-          <a class="small text-body font-weight-bold text-cap" href="#"
-            >{{ article.categorie }}</a
-          >
-        </span>
-        <h2>
-          <a class="text-inherit" href="blog-single-article.html"
-            > {{ article.title }}</a
-          >
-        </h2>
-        <p>
-          {{ article.resume }}
-        </p>
-        <a href="#"
-          >Read more <i class="fa fa-angle-right fa-sm ml-1"></i
-        ></a>
-      </div>
-    </div>
-  </article>
+  </div>
+</article>
