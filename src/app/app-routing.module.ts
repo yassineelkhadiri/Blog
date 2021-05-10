@@ -6,6 +6,7 @@ import { AccountComponent } from './components/account/account.component';
 import { LoginSecurityComponent } from './components/account/login-security/login-security.component';
 import { NotificationsComponent } from './components/account/notifications/notifications.component';
 import { PersonainfoComponent } from './components/account/personainfo/personainfo.component';
+import { ArticleComponent } from './components/article/article.component';
 import { BasicformComponent } from './components/basicform/basicform.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { HomeComponent } from './components/home/home.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'article', component: ArticleComponent },
   {
     path: 'settings',
     component: AccountComponent,
