@@ -1,11 +1,13 @@
 <div
-class="container space-2 space-bottom-lg-3 space-top-4"
-id="checkUsSection"
+  class="container space-2 space-bottom-lg-3 space-top-4"
+  id="checkUsSection"
 >
-    <div class="row">
-        <div class="col-12 mb-3 mb-sm-7">
-            <app-blog-card *ngFor="let articleEl of articles" [article]="articleEl"></app-blog-card>
-        </div> 
+  <div class="row">
+    <div class="col-12 mb-3 mb-sm-7">
+      <app-blog-card
+        *ngFor="let articleEl of articles"
+        [article]="articleEl"
+      ></app-blog-card>
     </div>
-        <app-navigation-bar></app-navigation-bar>
+  </div>
 </div>
