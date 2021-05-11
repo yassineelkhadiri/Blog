@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { User } from '../model/user.model';
 import { Comments } from '../model/comment.model';
 
 @Injectable({
@@ -39,5 +41,8 @@ export class CommentService {
     return this.comments;
   }
 
-  addComment() {}
+  addComment(form : NgForm , u : User) {
+    let comment = new Comments(u.photo,u.fname,u.lname,"Now",form.value.text,"123");
+    this.comments.push(comment);
+  }
 }
