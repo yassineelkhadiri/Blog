@@ -88,6 +88,7 @@ import { SwiperModule } from 'swiper/angular';
     HeroSectionComponent,
     HowItWorksSectionComponent,
     RatingsSectionComponent,
+    
   ],
   imports: [
     BrowserModule,
