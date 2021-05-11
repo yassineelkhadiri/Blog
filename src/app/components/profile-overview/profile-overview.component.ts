@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user.model';
-import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-profile-overview',
@@ -8,11 +7,13 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./profile-overview.component.css'],
 })
 export class ProfileOverviewComponent implements OnInit {
-  user: User;
+  @Input() user: User;
 
-  constructor(private usersService: UsersService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.user = this.usersService.getLoggedUser();
+  ngOnInit(): void {}
+  showpost = false;
+  show() {
+    this.showpost = !this.showpost;
   }
 }

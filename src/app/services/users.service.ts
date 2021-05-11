@@ -10,11 +10,7 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   users: User[] = [];
-
   loggedUser: User;
-  logger() {
-    console.log(this.users);
-  }
 
   createAndStoreUser(user: User) {
     this.http
@@ -57,6 +53,10 @@ export class UsersService {
     this.loggedUser = this.users[i];
   }
 
+  getTheUser(mail: string) {
+    return this.users.find((user) => user.mail == mail);
+  }
+
   getLoggedUser() {
     return this.loggedUser;
   }
@@ -64,8 +64,8 @@ export class UsersService {
     this.loggedUser = user;
   }
 
-  removeUser(u: User) {
-    const i = this.users.indexOf(u);
+  removeUser() {
+    const i = this.users.indexOf(this.loggedUser);
     this.users.splice(i, 1);
   }
 
