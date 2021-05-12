@@ -16,7 +16,7 @@ export class BasicinfoComponent implements OnInit {
   }
 
   user: User;
-  url: any = './assets/img/official/profile.png';
+  url: string = './assets/img/official/profile.png';
 
   onSave(form: NgForm) {
     const f = form.value;
@@ -27,7 +27,7 @@ export class BasicinfoComponent implements OnInit {
       f.email,
       f.phone,
       f.bio,
-      './assets/img/official/profile.png',
+      this.url,
       this.user.posts,
       this.user.followers,
       this.user.following
@@ -37,11 +37,12 @@ export class BasicinfoComponent implements OnInit {
   }
 
   onFileChanged(event) {
-    var reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
+    //   var reader = new FileReader();
+    //   reader.readAsDataURL(event.target.files[0]);
 
-    reader.onload = (_event) => {
-      this.url = reader.result;
-    };
+    //   reader.onload = (_event) => {
+    //     this.url = reader.result;
+    //   };
+    this.url = './assets/img/official/profile.png';
   }
 }

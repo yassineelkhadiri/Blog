@@ -37,13 +37,6 @@ export class ArticlesService {
     },
   ];
 
-  getUserArticles(author: string) {
-    const i = this.articles.indexOf(
-      this.articles.find((article) => article.author == author)
-    );
-    return this.articles[i];
-  }
-
   addArticle(article: Article) {
     this.articles.push(article);
   }

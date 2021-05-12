@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/model/article.model';
+import { User } from 'src/app/model/user.model';
 import { ArticlesService } from 'src/app/services/articles.service';
-import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-article',
@@ -10,11 +10,9 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ArticleComponent implements OnInit {
   article: Article = null;
+  user: User;
 
-  constructor(
-    private articleService: ArticlesService,
-    private userService: UsersService
-  ) {}
+  constructor(private articleService: ArticlesService) {}
 
   ngOnInit(): void {
     this.article = this.articleService.getSelectedArticle();

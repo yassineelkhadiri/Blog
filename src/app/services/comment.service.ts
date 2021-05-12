@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { User } from '../model/user.model';
 import { Comments } from '../model/comment.model';
 
 @Injectable({
@@ -21,8 +19,7 @@ export class CommentService {
       fname: 'Dave',
       lname: 'Austin',
       date: '1 day ago',
-      text:
-        'As a Special Education teacher this resonates so well with me. Fighting with gen ed teachers to flatten for the students with learning disabilities. It also confirms some things for me in my writing.',
+      text: 'As a Special Education teacher this resonates so well with me. Fighting with gen ed teachers to flatten for the students with learning disabilities. It also confirms some things for me in my writing.',
       articleId: '123',
     },
     {
@@ -30,19 +27,22 @@ export class CommentService {
       fname: 'Christina',
       lname: 'Kray',
       date: '2 days ago',
-      text:
-        'Since our attention spans seem to be shrinking by theday — keeping it simple is more important than ever.',
+      text: 'Since our attention spans seem to be shrinking by theday — keeping it simple is more important than ever.',
       articleId: '321',
     },
   ];
 
   constructor() {}
-  getComments() {
-    return this.comments;
+  getComments(id: string) {
+    let TempComments = this.comments.filter(
+      (comment) => comment.articleId == id
+    );
+    console.log(TempComments);
+
+    return TempComments;
   }
 
-  addComment(form : NgForm , u : User) {
-    let comment = new Comments(u.photo,u.fname,u.lname,"Now",form.value.text,"123");
+  addComment(comment: Comments) {
     this.comments.push(comment);
   }
 }

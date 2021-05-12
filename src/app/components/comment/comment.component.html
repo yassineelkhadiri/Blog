@@ -1,4 +1,4 @@
-<div class="pt-2 mb-11">
+<div class="pt-2 mb-11" *ngIf="comments">
   <div class="mb-4">
     <h3>{{ comments.length }} Comments</h3>
   </div>
@@ -17,7 +17,7 @@
         <div class="media-body">
           <div class="d-flex justify-content-between align-items-center">
             <span class="h5 mb-0">
-              {{ comments.fname }} {{ comments.lname }}</span
+              {{ comment.fname }} {{ comment.lname }}</span
             >
             <small class="text-muted">{{ comment.date }}</small>
           </div>
@@ -29,7 +29,7 @@
       </p>
     </li>
     <!-- End Comment -->
-    <form (ngSubmit)="addComment(f)" #f="ngForm">
+    <form (ngSubmit)="onComment(f)" #f="ngForm">
       <div class="form-row">
         <div class="col-12 mb-sm-3">
           <div class="js-form-message form-group">
@@ -51,7 +51,6 @@
           type="submit"
           class="btn btn-primary btn-wide transition-3d-hover"
           [disabled]="!f.valid"
-          
         >
           Submit
         </button>
