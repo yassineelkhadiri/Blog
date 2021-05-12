@@ -14,7 +14,7 @@ export class BasicformComponent implements OnInit {
 
   ngOnInit(): void {}
   user: User;
-  url: string;
+  url: string = './assets/img/official/profile.png';
 
   onSave(form: NgForm) {
     const f = form.value;

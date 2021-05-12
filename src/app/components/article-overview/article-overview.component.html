@@ -2,7 +2,12 @@
 <div class="container space-bottom-3">
   <div class="w-md-75 w-lg-60 mx-md-auto">
     <article class="card mb-3 mb-sm-5" *ngFor="let article of articles">
-      <img class="card-img-top" [src]="article.img" alt="Image Description" />
+      <img
+        class="card-img-top"
+        [src]="article.img"
+        alt="Image Description"
+        (click)="showArticle(article)"
+      />
 
       <div class="card-body">
         {{ article.categorie }}
