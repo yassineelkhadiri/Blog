@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from 'src/app/auth/user.model';
+import { User } from 'src/app/model/user.model';
 import { Article } from 'src/app/model/article.model';
 import { ArticlesService } from 'src/app/services/articles.service';
 import { UsersService } from 'src/app/services/users.service';
+import { nanoid } from 'nanoid';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newpost',
@@ -11,29 +13,43 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./newpost.component.css'],
 })
 export class NewpostComponent implements OnInit {
-   title : string;
-   resume : string;
-   content : string;
-   pathToImg : string;
+  title: string;
+  resume: string;
+  content: string;
+  pathToImg: string;
 
   constructor(
-    private articleService : ArticlesService,
-    private userService : UsersService,
+    private articleService: ArticlesService,
+    private userService: UsersService,
+    private router: Router
   ) {}
+  user: User;
+  article: Article;
+  imgUrl: string = '';
+  articles: Article[];
+  ngOnInit(): void {
+    this.user = this.userService.getLoggedUser();
+  }
 
-  ngOnInit(): void {}
+  onFileChanged(event) {
+    this.imgUrl = './assets/img/900x450/img1.jpg';
+  }
 
-  onFileChanged(event) {}
   onSave(form: NgForm) {
-    let newArticle = new Article(
-    "",
-    this.title,
-    this.resume,
-    this.pathToImg,
-    this.userService.getLoggedUser().fname,
-    this.userService.getLoggedUser().photo,
-    this.content,
-    "123");
-    this.articleService.addArticle(newArticle);
+    const f = form.value;
+    this.article = new Article(
+      f.categorie,
+      f.title,
+      f.resume,
+      this.imgUrl,
+      this.user.mail,
+      this.user.photo,
+      f.content,
+      nanoid()
+    );
+
+    this.articleService.addArticle(this.article);
+    this.router.navigate(['feed']);
+    form.reset();
   }
 }

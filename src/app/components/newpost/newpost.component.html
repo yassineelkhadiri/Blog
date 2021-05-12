@@ -13,7 +13,12 @@
             <div class="media align-items-center">
               <div class="media-body">
                 <div
-                  class="btn btn-sm btn-primary file-attachment-btn mb-2 mb-sm-0 mr-2"
+                  class="
+                    btn btn-sm btn-primary
+                    file-attachment-btn
+                    mb-2 mb-sm-0
+                    mr-2
+                  "
                 >
                   Upload Picture
                   <input
@@ -33,7 +38,7 @@
 
         <!-- Form Group -->
         <div class="row form-group">
-          <label for="title" class="col-sm-3 col-form-label input-label"    
+          <label for="title" class="col-sm-3 col-form-label input-label"
             >Title
           </label>
 
@@ -48,6 +53,22 @@
                 required
               />
             </div>
+          </div>
+        </div>
+        <!-- End Form Group -->
+
+        <!-- Form Group -->
+        <div class="row form-group">
+          <label for="title" class="col-sm-3 col-form-label input-label"
+            >Categorie
+          </label>
+
+          <div class="col-sm-9">
+            <select class="form-select" name="categorie" required ngModel>
+              <option value="Busines">Busines</option>
+              <option value="Creative">Creative</option>
+              <option value="Others">Others</option>
+            </select>
           </div>
         </div>
         <!-- End Form Group -->
@@ -84,7 +105,7 @@
                 class="form-control"
                 rows="6"
                 placeholder="Add the content here..."
-                name="bio"
+                name="content"
                 ngModel
                 required
               ></textarea>
