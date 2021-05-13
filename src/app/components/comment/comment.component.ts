@@ -28,11 +28,12 @@ export class CommentComponent implements OnInit {
   @Input() Id: string;
 
   onComment(form: NgForm) {
+    const date = new Date();
     this.comment = new Comments(
       this.user.photo,
       this.user.fname,
       this.user.lname,
-      new Date().toISOString(),
+      date.toDateString()+date.toLocaleTimeString(),
       form.value.text,
       this.Id
     );
