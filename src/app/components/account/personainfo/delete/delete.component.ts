@@ -7,14 +7,15 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./delete.component.css']
 })
 export class DeleteComponent implements OnInit {
-  canDelete : boolean = false
+  canDelete: boolean = false;
   constructor(private userService : UsersService) { }
 
   ngOnInit(): void {
+    
   }
 
   toggleCanDelete() {
-    this.canDelete = !this.canDelete;
+    this.canDelete = !this.canDelete
   }
 
   deleteUser() {

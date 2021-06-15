@@ -20,6 +20,7 @@
           id="deleteAccountCheckbox"
           (click)="toggleCanDelete()"
           
+          
         />
         <label class="custom-control-label" for="deleteAccountCheckbox"
           >Confirm that I want to delete my account.</label
@@ -27,13 +28,12 @@
       </div>
       <!-- End Custom Checkbox -->
     </div>
-
     <div class="d-flex justify-content-end">
       <button 
       type="submit" 
       class="btn btn-danger transition-3d-hover" 
       [disabled]="!canDelete"
-      (click)="deleteUser"
+      (click)="deleteUser()"
       >
         Delete
       </button>
