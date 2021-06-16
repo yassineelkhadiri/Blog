@@ -1,3 +1,11 @@
-li{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+li {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+  background-color: #eae5ed;
+}
+
+.navbar-brand {
+  font-size: 150%;
 }

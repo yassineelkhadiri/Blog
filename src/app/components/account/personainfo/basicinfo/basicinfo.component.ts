@@ -16,7 +16,7 @@ export class BasicinfoComponent implements OnInit {
   }
 
   user: User;
-  url: string = './assets/img/official/profile.png';
+  url: string = './assets/img/profile/profile.png';
 
   onSave(form: NgForm) {
     const f = form.value;
@@ -43,6 +43,6 @@ export class BasicinfoComponent implements OnInit {
     //   reader.onload = (_event) => {
     //     this.url = reader.result;
     //   };
-    this.url = './assets/img/official/profile.png';
+    this.url = './assets/img/profile/profile.png';
   }
 }

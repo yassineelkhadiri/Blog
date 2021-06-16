@@ -14,7 +14,7 @@ export class BasicformComponent implements OnInit {
 
   ngOnInit(): void {}
   user: User;
-  url: string = './assets/img/official/profile.png';
+  url: string = './assets/img/profile/profile.png';
 
   onSave(form: NgForm) {
     const f = form.value;
@@ -38,7 +38,7 @@ export class BasicformComponent implements OnInit {
   }
 
   onFileChanged(event) {
-    this.url = './assets/img/official/profile.png';
+    this.url = './assets/img/profile/nour.png';
     // var reader = new FileReader();
     // reader.readAsDataURL(event.target.files[0]);
 
