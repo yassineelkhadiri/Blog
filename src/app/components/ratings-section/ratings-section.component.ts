@@ -23,8 +23,8 @@ export class RatingsSectionComponent implements OnInit {
     {
       stars: 5,
       user: new User(
-        './assets/img/avatar-2.jpg',
-        'Christina Kray',
+        './assets/img/profile/yassine.jpg',
+        'Yassine Elkhadiri',
         'Business Manager'
       ),
       review:
@@ -33,8 +33,8 @@ export class RatingsSectionComponent implements OnInit {
     {
       stars: 4,
       user: new User(
-        './assets/img/avatar-1.jpg',
-        'Massalha Shady',
+        '../assets/img/profile/nour.jpg',
+        'Nour Araar',
         'CEO at Slack'
       ),
       review:
@@ -42,7 +42,11 @@ export class RatingsSectionComponent implements OnInit {
     },
     {
       stars: 5,
-      user: new User('./assets/img/avatar-3.jpg', 'Mark McManus', 'Journalist'),
+      user: new User(
+        '../assets/img/profile/nizar.jpg',
+        'Nizar Zouaoui',
+        'Journalist'
+      ),
       review:
         "I was looking for a quick and easy information service online. I tried a lot of them and ended up with BlogAll. Best blog post service i've ever seen. Keep up the great work!",
     },

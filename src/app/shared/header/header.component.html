@@ -1,18 +1,30 @@
 <header
-  class="header header-box-shadow header-box-shadow-on-scroll header-floating-lg js-header-fix-moment"
+  class="
+    header header-box-shadow header-box-shadow-on-scroll header-floating-lg
+    js-header-fix-moment
+  "
 >
-  <div id="logoAndNav" class="container">
+  <div id="logoAndNav" class="">
     <div class="header-section header-floating-inner mx-lg-n3">
       <!-- Nav -->
       <nav
-        class="navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal"
+        class="
+          navbar navbar-expand-lg
+          hs-menu-initialized hs-menu-horizontal
+          px-3
+        "
       >
         <!-- Logo -->
         <a class="navbar-brand" aria-label="Front" [routerLink]="['']">
           <img src="./assets/svg/logos/darkLogo.svg" alt="Logo" />
-          
         </a>
         <!-- End Logo -->
+
+        <div class="container-fluid">
+          <span class="navbar-brand">
+            <i><b>BlogAll</b></i>
+          </span>
+        </div>
 
         <!-- Navigation -->
         <div id="navBar" class="collapse navbar-collapse">
@@ -22,7 +34,7 @@
                 <a
                   class="nav-link"
                   [routerLink]="['']"
-                  [routerLinkActiveOptions]="{exact: true}"
+                  [routerLinkActiveOptions]="{ exact: true }"
                   routerLinkActive="active text-primary"
                   *ngIf="!isAuthenticated"
                   >Home</a

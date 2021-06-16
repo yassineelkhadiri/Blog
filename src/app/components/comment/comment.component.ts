@@ -33,10 +33,12 @@ export class CommentComponent implements OnInit {
       this.user.photo,
       this.user.fname,
       this.user.lname,
-      date.toDateString()+date.toLocaleTimeString(),
+      date.toDateString() + date.toLocaleTimeString(),
       form.value.text,
       this.Id
     );
+    //this.commentService.createAndStoreComment(this.comment);
+    //-->using the next line because of some eroors in the back
     this.commentService.addComment(this.comment);
     this.comments = this.commentService.getComments(this.Id);
 

@@ -25,14 +25,14 @@ export class NewpostComponent implements OnInit {
   ) {}
   user: User;
   article: Article;
-  imgUrl: string = '';
+  imgUrl: string = './assets/img/article/img0.jpg';
   articles: Article[];
   ngOnInit(): void {
     this.user = this.userService.getLoggedUser();
   }
 
   onFileChanged(event) {
-    this.imgUrl = './assets/img/900x450/img1.jpg';
+    this.imgUrl = './assets/img/article/img0.jpg';
   }
 
   onSave(form: NgForm) {
@@ -47,7 +47,8 @@ export class NewpostComponent implements OnInit {
       f.content,
       nanoid()
     );
-
+    //this.articleService.createAndStorearticle(this.article);
+    //--> using next line because of some eroors in the back
     this.articleService.addArticle(this.article);
     this.router.navigate(['feed']);
     form.reset();
